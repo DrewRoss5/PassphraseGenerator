@@ -75,3 +75,9 @@ class PassFile:
         password += str(secrets.randbelow(100))
         self.passwords[username] = password
         
+    # reads a key from the dictionary
+    def read_key(self, username: str):
+        try:
+            return self.passwords[username]
+        except KeyError as e:
+            return None
