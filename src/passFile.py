@@ -1,8 +1,6 @@
 import os
 import json
-import bcrypt
 import secrets
-import pyperclip
 from Crypto.Cipher import AES 
 from Crypto.Hash import SHA256
 from Crypto.Util.Padding import pad, unpad
