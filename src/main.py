@@ -82,4 +82,7 @@ match action:
             print('Password was updated successfully')
         except ValueError:
             print(f'Error - A password for the username "{username}" could not be found')
+            
+    case _:
+        print(f'Error - Unrecognized command "{action}"')
         
