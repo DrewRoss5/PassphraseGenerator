@@ -21,7 +21,7 @@ match action:
         pf.write()
         print('Password file was created succesfully')
     
-    case 'read':
+    case 'get':
         # decrypt the password file
         try:
             pass_file.read()
