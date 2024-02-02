@@ -61,3 +61,25 @@ match action:
             print(f'A new password for the username "{username}" was created successfully')
         except ValueError:
             print(f'A password cannot be created for the username "{username}"\nPerhaps it already exists?')
+
+    case 'edit':
+        # decrypt the password file
+        try:
+            pass_file.read()
+        except ValueError as e:
+            print(f'Error - {e}')
+            sys.exit(1)
+        # validate length of arguments
+        if len(sys.argv) != 4:
+            print('Error - Please provide the name of the password to be created')
+            sys.exit(1)
+        # attempt to edit the password for the given username
+        username = sys.argv[3]
+        new_password = getpass.getpas(f'New Password for {username}: ')
+        try:
+            pass_file.edit_key(username, new_password)
+            pass_file.write()
+            print('Password was updated successfully')
+        except ValueError:
+            print(f'Error - A password for the username "{username}" could not be found')
+        

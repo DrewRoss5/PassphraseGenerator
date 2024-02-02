@@ -74,10 +74,18 @@ class PassFile:
             password += secrets.choice('!?%&')
         password += str(secrets.randbelow(100))
         self.passwords[username] = password
-        
+    
     # reads a key from the dictionary
     def read_key(self, username: str):
         try:
             return self.passwords[username]
         except KeyError as e:
             return None
+    
+    # updates a key in the password dictionary
+    def edit_key(self, username: str, password: str):
+        try:
+            self.passwords[username] = password
+        except KeyError:
+            raise ValueError('Invalid username')
+
